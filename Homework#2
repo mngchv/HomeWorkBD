@@ -9,6 +9,9 @@ foreign key(department_id) references department(id),
 name varchar,
 salary int);
 
+INSERT INTO department(name)
+values (generate_series(0, 1000000));
+
 
 
 INSERT INTO "employee"(department_id, name,salary)
