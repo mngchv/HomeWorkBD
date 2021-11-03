@@ -1,0 +1,20 @@
+create table department
+(id serial primary key,
+name varchar);
+
+create table employee
+(id serial primary key,
+department_id int,
+foreign key(department_id) references department(id),
+name varchar,
+salary int);
+
+
+
+INSERT INTO "employee"(department_id, name,salary)
+select
+(random()*9 + 1),
+md5(random()::text)::char(10),
+(random()*100) from generate_series(1,100000);
+
+--drop table employee
